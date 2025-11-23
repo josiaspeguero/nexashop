@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Antioqu\u00EDa\\source\\repos\\TiendaBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7422D803-086E-420D-8152-3F0C2B88A126}|TiendaBackend\\TiendaBackend.csproj|c:\\users\\antioqu\u00EDa\\source\\repos\\tiendabackend\\tiendabackend\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7422D803-086E-420D-8152-3F0C2B88A126}|TiendaBackend\\TiendaBackend.csproj|solutionrelative:tiendabackend\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7422D803-086E-420D-8152-3F0C2B88A126}|TiendaBackend\\TiendaBackend.csproj|c:\\users\\antioqu\u00EDa\\source\\repos\\tiendabackend\\tiendabackend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7422D803-086E-420D-8152-3F0C2B88A126}|TiendaBackend\\TiendaBackend.csproj|solutionrelative:tiendabackend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\Antioqu\u00EDa\\source\\repos\\TiendaBackend\\TiendaBackend\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "TiendaBackend\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\Antioqu\u00EDa\\source\\repos\\TiendaBackend\\TiendaBackend\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "TiendaBackend\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAABUAAACgmZmZmZklwBoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T01:35:28.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\Antioqu\u00EDa\\source\\repos\\TiendaBackend\\TiendaBackend\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "TiendaBackend\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\Antioqu\u00EDa\\source\\repos\\TiendaBackend\\TiendaBackend\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "TiendaBackend\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T01:35:27.696Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+/* navbar section */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  z-index: 10000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #dbddde;
+}
+.navbar-container .logo {
+  display: flex;
+  align-items: center;
+}
+.logo .circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.logo .one {
+  width: 40px;
+  height: 40px;
+  background: #394047;
+  padding: 4px;
+}
+.logo .two {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 2px;
+}
+.logo .three {
+  width: 100%;
+  height: 100%;
+  background: #948782;
+}
+.logo .logo-text {
+  margin-left: 6px;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #394047;
+}
+.navbar-search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 50%;
+  position: relative;
+}
+.navbar-search .icon {
+  position: absolute;
+  left: 15px;
+  color: #5e6469;
+}
+.navbar-search input {
+  padding: 10px 10px 10px 40px;
+  width: 100%;
+  border: 1px solid #cdcccc;
+  border-radius: 40px;
+  outline: none;
+  color: #5e6469;
+}
+.navbar-actions .avatar {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+.avatar .profile {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #5e6469;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-right: 10px;
+}
+.avatar .user-info p {
+  color: #394047;
+}
+.avatar .user-info span {
+  color: #5e6469;
+  font-size: 14.5px;
+}
+/* navbar section end */
+/* car icon */
+.car-access {
+  z-index: 10000;
+  background: #fff;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #cdcccc;
+}
+.car-access .car-elements {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.car-access:hover {
+  scale: 1.1;
+}
+.car-access .icon {
+  font-size: 20px;
+  color: #394047;
+}
+.car-access .car-items {
+  position: absolute;
+  top: -6px;
+  right: -2px;
+  background: #5e6469;
+  border-radius: 10%;
+  font-size: 12px;
+  color: #fff;
+  width: 24px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* car icon end */
+/* action button  */
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #625752;
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.action-button .send-btn-form-disable {
+  border: none;
+  display: none;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  background: transparent;
+}
+.action-button .send-btn-form {
+  border: none;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  display: block;
+  background: transparent;
+}
+.action-button .loader {
+  border-top: 3px solid #a6a7a8;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  animation: loader-animation 1s infinite linear;
+  display: none;
+}
+.action-button .loader-animation {
+  border-top: 3px solid #a6a7a8;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  animation: loader-animation 1s infinite linear;
+  display: block;
+}
+
+@keyframes loader-animation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* action button end */
+@media (max-width: 800px) {
+  .navbar-container {
+    height: 60px;
+  }
+  .logo .one {
+    width: 35px;
+    height: 35px;
+  }
+  .logo .logo-text {
+    font-size: 17px;
+  }
+  .navbar-actions .avatar {
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+  }
+  .avatar .profile {
+    width: 40px;
+    height: 40px;
+    margin-right: 0;
+    text-transform: uppercase;
+  }
+  .avatar .user-info {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-search {
+    position: fixed;
+    top: 60px;
+    background: #fff;
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px 10px;
+    border-top: 1px solid #cdcccc;
+    height: 60px;
+  }
+  .navbar-search .icon {
+    left: 20px;
+  }
+  .navbar-search input {
+    padding: 10px 10px 10px 40px;
+    border-radius: 10px;
+  }
+  .car-access {
+    bottom: 30px;
+    right: 30px;
+  }
+}

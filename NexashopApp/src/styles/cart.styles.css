@@ -1,0 +1,95 @@
+.carrito-compras-container {
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+  padding: 120px 100px 50px 100px;
+}
+
+.carrito-compras-container .cart-items {
+  width: 70%;
+  max-width: 750px;
+}
+.cart-items .product-item {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  padding-right: 40px;
+  border-bottom: 1px solid #e3e4e7;
+}
+.cart-items .product-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.cart-items .product-item .item-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+.item-info .item-name {
+  font-size: 17px;
+  color: #32353f;
+  font-weight: 500;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+.item-info .item-desc {
+  font-size: 15px;
+  color: #484a50;
+}
+.item-info .item-price {
+  font-size: 25px;
+  font-weight: 500;
+  color: #32353f;
+}
+.carrito-compras-container .cart-order {
+  width: 30%;
+  min-height: 300px;
+  background: #f8f8f8;
+  height: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e3e4e7;
+  padding: 20px;
+}
+
+.cart-order .btn-pay {
+  width: 100%;
+  height: 40px;
+  background: #51535a;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.cart-order .btn-pay .logo-banco {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.btn-pay .logo-banco .circle {
+  width: 17px;
+  height: 17px;
+  background: #e3e4e7;
+  border-radius: 50%;
+}
+.btn-pay .logo-banco .white {
+  background: #e3e4e7;
+}
+.btn-pay .logo-banco .black {
+  background: #898a8e;
+  margin-left: -7px;
+}
+.cart-order .btn-pay button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #f3f3f3;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+}
