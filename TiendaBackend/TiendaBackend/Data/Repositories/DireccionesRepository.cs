@@ -1,18 +1,45 @@
-﻿using TiendaBackend.Domain.Interfaces;
+﻿using Dapper;
+using TiendaBackend.Domain.Interfaces;
 using TiendaBackend.Domain.Models;
+using TiendaBackend.Services;
 
 namespace TiendaBackend.Data.Repositories
 {
     public class DireccionesRepository : IDireccionesRepository
     {
-        public Task<bool> ActualizarDireccionAsync(Direccion direccion)
+        private readonly ConnectionService _connection;
+
+        public DireccionesRepository(ConnectionService connection)
         {
-            throw new NotImplementedException();
+            _connection = connection;
+        }
+        public async Task<bool> ActualizarDireccionAsync(Direccion direccion)
+        {
+            var sql = @"update direcciones set direccion=@DireccionTexto, 
+                        codigo_postal=@CodigoPostal where usuario_id=@UsuarioId";
+
+            var result = await _connection.Connection(c => c.ExecuteAsync(sql, new
+            {
+                direccion.DireccionTexto,
+                direccion.CodigoPostal,
+                direccion.UsuarioId
+            }));
+            return result > 0;
         }
 
-        public Task<bool> AgregarDireccionAsync(Direccion direccion)
+        public async Task<bool> AgregarDireccionAsync(Direccion direccion)
         {
-            throw new NotImplementedException();
+            var sql = @"insert into direcciones(usuario_id, direccion, codigo_postal) 
+                      values(@UsuarioId, @DireccionTexto, @CodigoPostal)";
+
+            var result = await _connection.Connection(c => c.ExecuteAsync(sql, new
+            {
+                direccion.UsuarioId,
+                direccion.DireccionTexto,
+                direccion.CodigoPostal
+            }));
+
+            return result > 0;
         }
     }
 }
