@@ -199,6 +199,82 @@
   animation: loader-animation 1s infinite linear;
   display: block;
 }
+/* modal section star */
+.modal-container.show {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  z-index: 100000;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 10px;
+}
+.modal-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  z-index: 100000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 10px;
+}
+.modal-container .modal {
+  width: 100%;
+  max-width: 350px;
+  background: #fff;
+  padding: 30px 15px;
+  border-radius: 5px;
+  position: relative;
+}
+.modal-container .modal .icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+.modal-container .modal h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.modal-container .modal label {
+  font-size: 15px;
+  color: #625752;
+}
+.modal-container .modal input {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 3px;
+  border: 1px solid #948782;
+  margin: 15px 0;
+  outline: none;
+  font-size: 14px;
+  color: #5e6469;
+}
+.modal-container .modal input::placeholder {
+  font-size: 14px;
+}
+.modal-container .modal button {
+  padding: 8px 15px;
+  border: none;
+  background: #0f0f0f;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+/* modal section end */
 
 @keyframes loader-animation {
   0% {
