@@ -7,6 +7,8 @@ import ProductDetail from "./pages/ProductDetail";
 import AuthUser from "./pages/AuthUser";
 import CreateAccount from "./pages/CreateAccount";
 import Carrito from "./pages/Carrito";
+import Profile from "./pages/Profile";
+import ProfileDirections from "./components/ProfileDirections";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <Carrito />,
+  },
+  {
+    path: "/perfil",
+    element: <Profile />,
+  },
+  {
+    path: "/perfil/mis-direcciones",
+    element: <ProfileDirections />,
   },
 ]);
 
