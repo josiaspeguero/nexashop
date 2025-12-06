@@ -256,7 +256,7 @@
   padding: 8px 10px;
   border-radius: 3px;
   border: 1px solid #948782;
-  margin: 15px 0;
+  margin: 7px 0 15px 0;
   outline: none;
   font-size: 14px;
   color: #5e6469;
@@ -276,6 +276,24 @@
 }
 /* modal section end */
 
+/* back home start */
+.backhome-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  height: 45px;
+  width: 45px;
+  background: #394047;
+  color: #dbddde;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.backhome-container .icon{
+  font-size: 20px;
+}
+/* back home end */
 @keyframes loader-animation {
   0% {
     transform: rotate(0);
