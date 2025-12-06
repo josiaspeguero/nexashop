@@ -40,7 +40,7 @@ function Profile() {
               </div>
               <div className="description">
                 <p>Your Directions</p>
-                <span>Check or edit your directions in some click</span>
+                <span>Change or edit your personal info in some click</span>
               </div>
             </div>
 
