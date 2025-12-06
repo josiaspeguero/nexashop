@@ -1,0 +1,218 @@
+.profile-container {
+  padding: 0 0 40px 0;
+}
+
+.profile-title {
+  width: 300px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-right: 1px solid rgb(200, 200, 200);
+  font-size: 20px;
+  font-weight: 500;
+  color: #0f0f0f;
+  letter-spacing: 0.2px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.profile-container .profile-content {
+  display: flex;
+  align-items: start;
+}
+.profile-menu {
+  height: 100vh;
+  top: 50px;
+  position: fixed;
+  width: 300px;
+  border-right: 1px solid rgb(200, 200, 200);
+}
+
+.profile-menu .menu-item {
+  height: 100px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgb(216, 214, 214);
+  border-right: 0;
+  cursor: pointer;
+}
+
+.menu-item .line-decoration {
+  width: 5px;
+  height: 100%;
+  margin-right: 10px;
+}
+.selected {
+  background: #f1f1f1;
+}
+.menu-item .selected {
+  background: rgb(71, 71, 71);
+}
+
+.menu-item .icon-container {
+  height: 50px;
+  min-width: 50px;
+  background: #272626;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.menu-item .icon-container .icon {
+  color: #fff;
+  font-size: 17px;
+}
+.menu-item .description {
+  padding-right: 5px;
+}
+.menu-item .description p {
+  font-size: 15px;
+  color: #0f0f0f;
+  font-weight: 500;
+}
+.menu-item .description span {
+  color: #757575;
+  font-size: 13px;
+}
+
+.profile-section {
+  border-top: 1px solid rgb(200, 200, 200);
+  width: calc(100% - 300px);
+  padding: 20px 30px;
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+.profile-section .profile-header {
+  margin-top: -20px;
+  padding-top: 20px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  height: 100px;
+  gap: 5px;
+}
+.profile-header h2 {
+  font-size: 25px;
+  color: #272626;
+  text-transform: capitalize;
+}
+.profile-header p {
+  font-size: 16px;
+  color: #757575;
+}
+.profile-section hr {
+  border: none;
+  background: #c3c2c2;
+  width: 100%;
+  height: 1px;
+}
+
+.profile-personal-info {
+  padding: 20px 0;
+}
+.profile-picture .picture {
+  height: 75px;
+  width: 75px;
+  background: #394047;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #f1f1f1;
+}
+.profile-picture p {
+  font-size: 16px;
+  color: #394047;
+  margin-bottom: 2px;
+}
+.profile-picture span {
+  font-size: 13px;
+  color: #757575;
+}
+.profile-picture .profile-desciption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-desciption .upload-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #394047;
+  color: #f1f1f1;
+}
+.profile-desciption .upload-profile .icon {
+  margin-right: 10px;
+  font-size: 16px;
+}
+.profile-desciption .upload-profile {
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.info-section {
+  padding: 30px 0;
+}
+.info-section .title-info {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #394047;
+}
+.info-section .input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.info-section input {
+  padding: 10px 8px;
+  border-radius: 6px;
+  border: 1px solid #c3c2c2;
+  font-weight: 500;
+  outline: none;
+  width: 50%;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+.info-section input {
+}
+.info-section input::placeholder {
+  font-weight: 500;
+}
+.info-section .add-email {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  cursor: pointer;
+  border: 1px solid rgb(206, 204, 204);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 40px;
+  margin-top: 20px;
+}
+.info-section .add-email .icon {
+  margin-right: 10px;
+}
+
+.info-section .add-email p {
+  font-size: 15px;
+  color: #394047;
+  text-transform: capitalize;
+}
