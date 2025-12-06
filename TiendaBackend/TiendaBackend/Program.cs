@@ -35,6 +35,8 @@ builder.Services.AddScoped<ConnectionService>();
 builder.Services.AddScoped<ListarProductos>();
 builder.Services.AddScoped<RealizarPagos>();
 builder.Services.AddScoped<HttpClient>();
+builder.Services.AddScoped<AgregarDireccionEnvio>();
+builder.Services.AddScoped<ActualizarDireccionEnvio>();
 
 //mysql connection
 
