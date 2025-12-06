@@ -2,13 +2,13 @@ import "../styles/cart.styles.css";
 import Navbar from "../components/Navbar";
 import { FaTrash, FaTruck } from "react-icons/fa";
 import { shortCutText } from "../utils/shortCutText";
-import CambiarDireccionEnvio from "../components/CambiarDireccionEnvio";
+import CambiarInfoEnvio from "../components/CambiarInfoEnvio";
 
 function Carrito() {
   return (
     <div>
       <Navbar />
-      <CambiarDireccionEnvio />
+      <CambiarInfoEnvio />
       <div className="carrito-compras-container">
         <div className="cart-items">
           <h2>Cart Items</h2>
