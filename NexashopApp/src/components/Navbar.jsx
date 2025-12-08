@@ -39,7 +39,7 @@ function Navbar() {
         <div
           className="navbar-actions"
           onClick={() => {
-            window.location.href = "/app";
+            window.location.href = "/perfil";
           }}
         >
           <div className="avatar">
