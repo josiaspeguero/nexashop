@@ -9,6 +9,7 @@ import {
   listarProductosPorId,
 } from "../api/axios";
 import { useEffect, useState } from "react";
+import { formatMoney } from "../utils/formatMoney";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -39,37 +40,42 @@ function ProductDetail() {
       <Navbar />
       <CarAccess />
       <div className="detail-product-container">
-        <div className="product">
-          <div className="img-product">
-            <img
-              src="https://cdn.pixabay.com/photo/2017/08/27/05/33/trousers-2685231_1280.jpg"
-              alt=""
-            />
-          </div>
-          <div className="info-product">
-            <h2>Pantalón Casual Slim Fit</h2>
-            <p>
-              Pantalón moderno, cómodo y versátil, diseñado para acompañarte en
-              cualquier ocasión.
-            </p>
-            <div className="price">
-              <span>RD 1,240</span>
+        {detalleProducto ? (
+          <div className="product">
+            <div className="img-product">
+              <img
+                src={detalleProducto.photoUrl}
+                alt={detalleProducto.nombre}
+              />
             </div>
-            <div className="select-size">
-              <div className="title">
-                <p>Select a size</p>
-                <Link to="/">Guide Size</Link>
+            <div className="info-product">
+              <h2>{detalleProducto.nombre}</h2>
+              <p>{detalleProducto.descripcion}</p>
+              <div className="price">
+                <span>{formatMoney(detalleProducto.precio)}</span>
               </div>
-              <div className="sizes">
-                <div className="box-size">S</div>
-                <div className="box-size selected">M</div>
-                <div className="box-size">L</div>
+              <div className="select-size">
+                <div className="title">
+                  <p>Select a size</p>
+                  <Link to="/">Guide Size</Link>
+                </div>
+                <div className="sizes">
+                  <div className="box-size">S</div>
+                  <div className="box-size selected">M</div>
+                  <div className="box-size">L</div>
+                </div>
               </div>
+              <button className="buy-now">Comprar Ahora</button>
+              <button>Agregar al carrito</button>
             </div>
-            <button className="buy-now">Comprar Ahora</button>
-            <button>Agregar al carrito</button>
           </div>
-        </div>
+        ) : (
+          <div className="not-found-product">
+            No pudimos encontrar este producto. Puede que ya no esté en
+            inventario.
+          </div>
+        )}
+
         <Productos />
       </div>
     </div>
