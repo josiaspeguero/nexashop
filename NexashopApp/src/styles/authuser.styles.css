@@ -59,6 +59,9 @@
   font-size: 15px;
   letter-spacing: 2px;
 }
+.auth-form .navigate-linkedin {
+  text-decoration: none;
+}
 .auth-form .linkedin {
   border: 1px solid #c4c8cb;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -135,6 +138,19 @@
   outline: none;
   color: #3a4147;
 }
+.change-form {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+.change-form p {
+  margin-right: 5px;
+  color: #3a4147;
+}
+.change-form a {
+  color: #0759e7;
+  text-decoration: none;
+}
 @media (max-width: 1000px) {
   .auth-user-container {
     padding: 50px 50px 100px 50px;
@@ -144,6 +160,7 @@
   .auth-form {
     display: block;
   }
+
   .auth-form .linkedin {
     width: 100%;
     padding: 15px 20px;

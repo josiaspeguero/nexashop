@@ -5,7 +5,7 @@ import { useState } from "react";
 import { authUser } from "../api/axios";
 import { ToastContainer, toast } from "react-toastify";
 import { delayFunction } from "../utils/delayFunction";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function AuthUser() {
   const navigate = useNavigate();
@@ -77,13 +77,19 @@ function AuthUser() {
         <div className="auth-form">
           <div className="contact-form">
             <p className="title">Connect</p>
-            <div className="linkedin">
-              <FaLinkedin className="icon" />
-              <div className="linkedin-info">
-                <span>Linkedin</span>
-                <p>Josias M. Peguro Santana</p>
+            <Link
+              to="https://www.linkedin.com/in/josias-peguero"
+              className="navigate-linkedin"
+            >
+              {" "}
+              <div className="linkedin">
+                <FaLinkedin className="icon" />
+                <div className="linkedin-info">
+                  <span>Linkedin</span>
+                  <p>Josias M. Peguro Santana</p>
+                </div>
               </div>
-            </div>
+            </Link>
             <hr />
             <div className="contact-info" style={{ marginTop: "30px" }}>
               <p>Response Time</p>
@@ -125,6 +131,12 @@ function AuthUser() {
               isActive={loading}
               type="submit"
             />
+            <div className="change-form">
+              <p>
+                ¿No tienes una cuenta?{" "}
+                <Link to="/crear-cuenta">Crea una ahora</Link>
+              </p>
+            </div>
           </form>
         </div>
       </div>

@@ -5,6 +5,8 @@ import { useState } from "react";
 import { createUser } from "../api/axios";
 import { ToastContainer, toast } from "react-toastify";
 import { delayFunction } from "../utils/delayFunction";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CreateAccount() {
   const [loading, setLoading] = useState(false);
@@ -15,6 +17,8 @@ function CreateAccount() {
     contrasena: "",
     correoSecundario: "",
   });
+  //navegacion a iniciar sesion
+  const navigate = useNavigate();
 
   const createUserHandleChange = (e) => {
     const { name, value } = e.target;
@@ -27,11 +31,14 @@ function CreateAccount() {
   const createUserSubmit = async () => {
     setLoading(true);
     try {
-      await delayFunction(2000);
+      await delayFunction(1000);
       const res = await createUser(user);
       if (res.status === 200) {
         setLoading(false);
-        toast.success(res.data);
+        toast.success(res.data.mensaje);
+        console.log(res);
+        await delayFunction(20000);
+        navigate("/iniciar-sesion");
       } else {
         setLoading(false);
         toast.error(res.data);
@@ -74,13 +81,16 @@ function CreateAccount() {
         <div className="auth-form">
           <div className="contact-form">
             <p className="title">Connect</p>
-            <div className="linkedin">
-              <FaLinkedin className="icon" />
-              <div className="linkedin-info">
-                <span>Linkedin</span>
-                <p>Josias M. Peguro Santana</p>
+            <Link to="https://www.linkedin.com/in/josias-peguero" className="navigate-linkedin">
+              {" "}
+              <div className="linkedin">
+                <FaLinkedin className="icon" />
+                <div className="linkedin-info">
+                  <span>Linkedin</span>
+                  <p>Josias M. Peguro Santana</p>
+                </div>
               </div>
-            </div>
+            </Link>
             <hr />
             <div className="contact-info" style={{ marginTop: "30px" }}>
               <p>Response Time</p>
@@ -146,12 +156,17 @@ function CreateAccount() {
             <label htmlFor="">Confirme la clave</label>
             <input type="text" placeholder="confirmar clave" name="" />{" "}
             {/* cambiar a email type */}
-            <button type="submit">crear</button>
             <ActionButton
               text={"Crear cuenta"}
               isActive={loading}
               type={"submit"}
             />
+            <div className="change-form">
+              <p>
+                ¿Tienes una cuenta?{" "}
+                <Link to="/iniciar-sesion">Inicia Sesion</Link>
+              </p>
+            </div>
           </form>
         </div>
       </div>
