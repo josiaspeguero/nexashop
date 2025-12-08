@@ -96,6 +96,7 @@
 /* navbar section end */
 /* car icon */
 .car-access {
+  text-decoration: none;
   z-index: 10000;
   background: #fff;
   height: 50px;

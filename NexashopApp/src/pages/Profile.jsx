@@ -1,11 +1,13 @@
 import { FaUser, FaUpload, FaPlus, FaTruck } from "react-icons/fa";
 import "../styles/profile.styles.css";
 import BackHome from "../components/ui/BackHome";
+import {ToastContainer, toast} from 'react-toastify'
 
 function Profile() {
   return (
     <div>
       <BackHome />
+      <ToastContainer/>
       <div className="profile-container">
         <div className="profile-title">
           <p>Account</p>
@@ -105,7 +107,9 @@ function Profile() {
                     <span>PNG, JPG, WEBP</span>
                   </div>
 
-                  <button className="upload-profile">
+                  <button className="upload-profile" onClick={()=>{
+                    toast.error("Funcion no disponible actualmente")
+                  }}>
                     <FaUpload className="icon" />
                     Upload Image
                   </button>
