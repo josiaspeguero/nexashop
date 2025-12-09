@@ -28,3 +28,8 @@ export const createUser = async (user) => {
   const res = await axios.post(`${baseUrl}/usuarios/crear-cuenta`, user);
   return res;
 };
+
+export const getProductsFromCart = async (id) => {
+  const res = await axios.get(`${baseUrl}/api/carrito/mis-productos/${id}`);
+  return res;
+};
