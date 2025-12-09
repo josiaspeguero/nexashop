@@ -1,6 +1,6 @@
 ﻿using TiendaBackend.Application.DTOs;
 
-namespace TiendaBackend.Domain
+namespace TiendaBackend.Data
 {
     public interface IOrdenRepository
     {

@@ -27,6 +27,8 @@ builder.Services.AddScoped<ICodigosSeguridadRepository, CodigoSeguridadRepositor
 builder.Services.AddScoped<IEnviarMensaje, EnviarMensaje>();
 builder.Services.AddScoped<IJWTSecurity, JWTGenerate>();
 builder.Services.AddScoped<ICookieSecurity, CookieGenerator>();
+builder.Services.AddScoped<IOrdenProductoRepository, OrdenProductoRespository>();
+builder.Services.AddScoped<ICarritoRepository, CarritoRepository>();
 
 //use case
 builder.Services.AddScoped<CrearCuenta>();
@@ -37,6 +39,9 @@ builder.Services.AddScoped<RealizarPagos>();
 builder.Services.AddScoped<HttpClient>();
 builder.Services.AddScoped<AgregarDireccionEnvio>();
 builder.Services.AddScoped<ActualizarDireccionEnvio>();
+builder.Services.AddScoped<ListarProductosCarrito>();
+builder.Services.AddScoped<CrearCarrito>();
+builder.Services.AddScoped<AgregarOrdenAlCarrito>();
 
 //mysql connection
 

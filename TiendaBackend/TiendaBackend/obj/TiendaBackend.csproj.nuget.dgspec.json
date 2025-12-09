@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Antioquía\\source\\repos\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj": {}
+    "C:\\Users\\Antioquía\\Documents\\nexashop\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Antioquía\\source\\repos\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj": {
+    "C:\\Users\\Antioquía\\Documents\\nexashop\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Antioquía\\source\\repos\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj",
+        "projectUniqueName": "C:\\Users\\Antioquía\\Documents\\nexashop\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj",
         "projectName": "TiendaBackend",
-        "projectPath": "C:\\Users\\Antioquía\\source\\repos\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj",
+        "projectPath": "C:\\Users\\Antioquía\\Documents\\nexashop\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj",
         "packagesPath": "C:\\Users\\Antioquía\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Antioquía\\source\\repos\\TiendaBackend\\TiendaBackend\\obj\\",
+        "outputPath": "C:\\Users\\Antioquía\\Documents\\nexashop\\TiendaBackend\\TiendaBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Antioquía\\AppData\\Roaming\\NuGet\\NuGet.Config",

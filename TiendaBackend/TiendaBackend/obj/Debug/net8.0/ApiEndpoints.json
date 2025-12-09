@@ -1,5 +1,85 @@
 [
   {
+    "ContainingType": "TiendaBackend.Controllers.CarritoController",
+    "Method": "CrearCarrito",
+    "RelativePath": "api/carrito/crear-carrito",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carrito",
+        "Type": "TiendaBackend.Domain.Models.Carrito",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiendaBackend.Controllers.CarritoController",
+    "Method": "VerProductos",
+    "RelativePath": "api/carrito/mis-productos/{usuarioID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiendaBackend.Controllers.DireccionController",
+    "Method": "ActualizarDireccion",
+    "RelativePath": "api/direcciones/actualizar-direccion",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "direccion",
+        "Type": "TiendaBackend.Domain.Models.Direccion",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiendaBackend.Controllers.DireccionController",
+    "Method": "AgregarDireccion",
+    "RelativePath": "api/direcciones/agregar-direccion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "direccion",
+        "Type": "TiendaBackend.Domain.Models.Direccion",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiendaBackend.Controllers.OrdenProductosController",
+    "Method": "AgregarProductos",
+    "RelativePath": "api/ordenes/agregar-producto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordenProducto",
+        "Type": "TiendaBackend.Domain.Models.OrdenProducto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TiendaBackend.Controllers.ProductosController",
     "Method": "ListarProductos",
     "RelativePath": "api/Productos",

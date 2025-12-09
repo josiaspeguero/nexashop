@@ -9,7 +9,7 @@ namespace TiendaBackend.Controllers
     [ApiController]
     [Route("/usuarios")]
     public class UsuarioController : ControllerBase
-    {
+    { 
         private readonly CrearCuenta _crearCuenta;
         private readonly IniciarSesion _iniciarSesion;
 
@@ -27,7 +27,7 @@ namespace TiendaBackend.Controllers
             {
                 return BadRequest(res.mensaje);
             }
-            return Ok(res.mensaje);
+            return Ok(new { res.mensaje });
         }
 
         [HttpPost("iniciar-sesion")]

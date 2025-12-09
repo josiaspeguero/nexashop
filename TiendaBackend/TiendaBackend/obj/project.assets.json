@@ -2182,11 +2182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Antioquía\\source\\repos\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj",
+      "projectUniqueName": "C:\\Users\\Antioquía\\Documents\\nexashop\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj",
       "projectName": "TiendaBackend",
-      "projectPath": "C:\\Users\\Antioquía\\source\\repos\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj",
+      "projectPath": "C:\\Users\\Antioquía\\Documents\\nexashop\\TiendaBackend\\TiendaBackend\\TiendaBackend.csproj",
       "packagesPath": "C:\\Users\\Antioquía\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Antioquía\\source\\repos\\TiendaBackend\\TiendaBackend\\obj\\",
+      "outputPath": "C:\\Users\\Antioquía\\Documents\\nexashop\\TiendaBackend\\TiendaBackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Antioquía\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2264,5 +2264,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error al obtener los datos de vulnerabilidad del paquete: No se puede cargar el índice de servicio del origen https://api.nuget.org/v3/index.json."
+    }
+  ]
 }
