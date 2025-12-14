@@ -77,7 +77,7 @@
   align-items: center;
   margin: 20px 0;
 }
-.cart-order .direction a{
+.cart-order .direction a {
   color: #0080ff;
 }
 .cart-order .direction .icon {
@@ -155,12 +155,15 @@
   text-transform: capitalize;
 }
 .cart-order .change-direction {
-  color: rgb(3, 176, 238);
   text-align: center;
   width: 100%;
   font-size: 15px;
   margin-top: 15px;
   cursor: pointer;
+}
+.cart-order .change-direction a {
+  text-decoration: none;
+  color: #03b0ee;
 }
 @media (max-width: 1000px) {
   .carrito-compras-container {

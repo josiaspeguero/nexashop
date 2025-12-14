@@ -133,14 +133,9 @@ function Carrito() {
             </div>
             <button>Pagar Ahora</button>
           </div>
-          <p
-            className="change-direction"
-            onClick={() => {
-              document.getElementById("modal-container").classList.add("show");
-            }}
-          >
-            Cambiar dirección de envío
-          </p>
+          <div className="change-direction">
+            <Link to="/perfil/mis-direcciones">Cambiar dirección de envío</Link>
+          </div>
         </div>
       </div>
     </div>
