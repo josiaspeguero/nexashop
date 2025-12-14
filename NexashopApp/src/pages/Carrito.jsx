@@ -5,6 +5,8 @@ import { shortCutText } from "../utils/shortCutText";
 import CambiarInfoEnvio from "../components/CambiarInfoEnvio";
 import { useEffect, useState } from "react";
 import { getProductsFromCart } from "../api/axios";
+import { EliminarProductoFunction } from "../components/EliminarProductoFunction";
+import { toast, ToastContainer } from "react-toastify";
 
 function Carrito() {
   const [products, setProducts] = useState([]);
@@ -18,8 +20,8 @@ function Carrito() {
       const usuarioParse = JSON.parse(usuario);
       const myProducts = await getProductsFromCart(usuarioParse.id);
       setProducts(myProducts.data);
-      const  carritoID = myProducts.data[0].carritoID;
-      localStorage.setItem("carritoID", carritoID)
+      const carritoID = myProducts.data[0].carritoID;
+      localStorage.setItem("carritoID", carritoID);
     }
     loadProductsCart();
   }, []);
@@ -27,12 +29,16 @@ function Carrito() {
     <div>
       <Navbar />
       <CambiarInfoEnvio />
+      <ToastContainer
+        position="bottom-right"
+        style={{ textTransform: "capitalize" }}
+      />
       <div className="carrito-compras-container">
         <div className="cart-items">
           <h2>Cart Items</h2>
           {products.length > 0
             ? products.map((product) => (
-                <div className="product-item">
+                <div className="product-item" key={product.id}>
                   <img src={product.photo} alt="" />
                   <div className="item-resume">
                     <div className="item-info">
@@ -43,7 +49,15 @@ function Carrito() {
                       <p className="item-price">{product.precio}</p>
                     </div>
                     <div className="item-actions">
-                      <div className="delete">
+                      <div
+                        className="delete"
+                        onClick={async () => {
+                          const res = await EliminarProductoFunction(
+                            product.id
+                          );
+                          toast(res);
+                        }}
+                      >
                         <FaTrash className="icon" />
                       </div>
                     </div>
