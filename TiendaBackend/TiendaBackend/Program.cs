@@ -43,6 +43,7 @@ builder.Services.AddScoped<ListarProductosCarrito>();
 builder.Services.AddScoped<CrearCarrito>();
 builder.Services.AddScoped<AgregarOrdenAlCarrito>();
 builder.Services.AddScoped<EliminaProductoDelCarrito>();
+builder.Services.AddScoped<ListarDirecciones>();
 
 //mysql connection
 

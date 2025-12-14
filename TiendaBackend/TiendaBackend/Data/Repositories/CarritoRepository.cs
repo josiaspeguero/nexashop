@@ -46,6 +46,7 @@ namespace TiendaBackend.Data.Repositories
             if (carritoUsuario != null)
             {
                 var sql = @"select 
+                        id,
                         carrito_id as CarritoID,
                         producto_id as ProductoID,
                         descripcion,

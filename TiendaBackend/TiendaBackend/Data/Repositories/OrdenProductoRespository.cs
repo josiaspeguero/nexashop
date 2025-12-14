@@ -44,7 +44,7 @@ namespace TiendaBackend.Data.Repositories
                 ordenProducto.IsComprado,
                 ordenProducto.FechaAgregado,
                 ordenProducto.Precio,
-                Descripcion = ordenProducto.Descripcion,
+                ordenProducto.Descripcion,
                 ordenProducto.Photo,
                 
             }));

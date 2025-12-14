@@ -10,11 +10,14 @@ namespace TiendaBackend.Controllers
     {
         private readonly AgregarDireccionEnvio _agregarDireccion;
         private readonly ActualizarDireccionEnvio _actualizarDireccion;
+        private readonly ListarDirecciones _listarDirecciones;
 
-        public DireccionController(AgregarDireccionEnvio agregarDireccion, ActualizarDireccionEnvio actualizarDireccion)
+        public DireccionController(AgregarDireccionEnvio agregarDireccion, ActualizarDireccionEnvio actualizarDireccion,
+            ListarDirecciones listarDirecciones)
         {
             _agregarDireccion = agregarDireccion;
             _actualizarDireccion = actualizarDireccion;
+            _listarDirecciones = listarDirecciones;
         }
 
         [HttpPost("agregar-direccion")]
@@ -37,6 +40,12 @@ namespace TiendaBackend.Controllers
                 return BadRequest(result.message);
             }
             return Ok(result.message);
+        }
+        [HttpGet("mis-direcciones/{usuarioId}")]
+        public async Task<ActionResult> MisDirecciones(int usuarioId)
+        {
+            var res = await _listarDirecciones.ListarDireccionesTask(usuarioId);
+            return Ok(res);
         }
     }
 

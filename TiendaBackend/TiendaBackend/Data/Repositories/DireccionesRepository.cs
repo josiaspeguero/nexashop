@@ -41,5 +41,16 @@ namespace TiendaBackend.Data.Repositories
 
             return result > 0;
         }
+
+        public async Task<IEnumerable<Direccion?>> MisDireccionesAsync(int usuarioId)
+        {
+            var sql = @"select id, usuario_id as usuarioId,
+                        direccion as DireccionTexto, codigo_postal as CodigoPostal 
+                        from direcciones where usuario_id=@Id";
+            return await _connection.Connection(c => c.QueryAsync<Direccion>(sql, new
+            {
+                Id = usuarioId
+            }));
+        }
     }
 }
