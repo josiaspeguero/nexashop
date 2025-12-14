@@ -24,7 +24,7 @@ function ProfileDirections() {
     }
     const usuarioParse = JSON.parse(usuario);
     async function cargarDatos() {
-      const misDirecciones = await listarMisDirecciones(0);
+      const misDirecciones = await listarMisDirecciones(usuarioParse.id);
 
       if (misDirecciones.data && misDirecciones.data.length > 0) {
         setDireccion(misDirecciones.data[0]);
