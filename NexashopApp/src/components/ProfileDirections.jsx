@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { AgregarDireccionDeEnvio } from "./AgregarDireccionDeEnvio";
 import { ToastContainer, toast } from "react-toastify";
 import { actualizarDireccionEnvio, listarMisDirecciones } from "../api/axios";
-import { delayFunction } from "../utils/delayFunction";
 
 function ProfileDirections() {
   const [direccion, setDireccion] = useState({
@@ -25,7 +24,7 @@ function ProfileDirections() {
     }
     const usuarioParse = JSON.parse(usuario);
     async function cargarDatos() {
-      const misDirecciones = await listarMisDirecciones(usuarioParse.id);
+      const misDirecciones = await listarMisDirecciones(0);
 
       if (misDirecciones.data && misDirecciones.data.length > 0) {
         setDireccion(misDirecciones.data[0]);
@@ -54,7 +53,6 @@ function ProfileDirections() {
     const res = await actualizarDireccionEnvio(direccion);
     try {
       setLoading(true);
-      await delayFunction(1000);
       if (res.status === 201 || res.status === 200) {
         toast.success(res.data);
       }
@@ -166,9 +164,9 @@ function ProfileDirections() {
                       Object.values(direccion).some(
                         (v) => typeof v === "string" && v.trim() !== ""
                       )
-                        ? { marginTop: "-30px", cursor: "pointer" }
+                        ? { marginTop: "30px", cursor: "pointer" }
                         : {
-                            marginTop: "-30px",
+                            marginTop: "30px",
                             opacity: "0.7",
                             background: "#f1f1f1",
                             cursor: "not-allowed",
