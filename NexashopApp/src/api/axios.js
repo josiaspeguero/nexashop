@@ -61,3 +61,11 @@ export const listarMisDirecciones = async (usuarioId) => {
   );
   return res;
 };
+
+export const actualizarDireccionEnvio = async (direccion) => {
+  const res = await axios.put(
+    `${baseUrl}/api/direcciones/actualizar-direccion`,
+    direccion
+  );
+  return res;
+};

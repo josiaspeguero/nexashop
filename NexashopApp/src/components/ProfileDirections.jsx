@@ -5,7 +5,8 @@ import BackHome from "./ui/BackHome";
 import { useEffect, useState } from "react";
 import { AgregarDireccionDeEnvio } from "./AgregarDireccionDeEnvio";
 import { ToastContainer, toast } from "react-toastify";
-import { listarMisDirecciones } from "../api/axios";
+import { actualizarDireccionEnvio, listarMisDirecciones } from "../api/axios";
+import { delayFunction } from "../utils/delayFunction";
 
 function ProfileDirections() {
   const [direccion, setDireccion] = useState({
@@ -15,6 +16,7 @@ function ProfileDirections() {
   });
 
   const [tieneDireccion, setTieneDireccion] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const usuario = localStorage.getItem("usuario");
@@ -47,6 +49,23 @@ function ProfileDirections() {
       [name]: value,
     });
   };
+
+  const actualizarDireccionSubmit = async () => {
+    const res = await actualizarDireccionEnvio(direccion);
+    try {
+      setLoading(true);
+      await delayFunction(1000);
+      if (res.status === 201 || res.status === 200) {
+        toast.success(res.data);
+      }
+      setLoading(false);
+    } catch (error) {
+      toast.error("No se pudo actualizar");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <CambiarInfoEnvio />
@@ -55,13 +74,6 @@ function ProfileDirections() {
       <div className="profile-container">
         <div className="profile-title">
           <p>Account</p>
-          <button
-            onClick={() => {
-              console.log(direccion);
-            }}
-          >
-            direeeee
-          </button>
         </div>
         <div className="profile-content">
           <div className="profile-menu">
@@ -110,61 +122,71 @@ function ProfileDirections() {
 
             <div className="info-section">
               <div className="title-info">Direction & Postal Code</div>
-              <div className="input-group">
-                <input
-                  type="text"
-                  placeholder="Dirección de envio"
-                  name="direccionTexto"
-                  value={direccion?.direccionTexto || ""}
-                  onChange={inputHandleChange}
-                />
-                <input
-                  type="number"
-                  placeholder="Codigo Postal"
-                  name="codigoPostal"
-                  value={direccion?.codigoPostal || ""}
-                  onChange={inputHandleChange}
-                />
-              </div>
-            </div>
-            <div className="info-section">
-              <div
-                className={tieneDireccion ? "add-email" : "add-email-display"}
-                style={{ marginTop: "-30px" }}
-                onClick={() => {
-                  document
-                    .getElementById("modal-container")
-                    .classList.add("show");
-                }}
-              >
-                <FaEdit className="icon" />
-                <p>Change Information</p>
-              </div>
-              <div
-                className={tieneDireccion ? "add-email-display" : "add-email"}
-                id="save-direction"
-                style={
-                  Object.values(direccion).some(
-                    (v) => typeof v === "string" && v.trim() !== ""
-                  )
-                    ? { marginTop: "-30px", cursor: "pointer" }
-                    : {
-                        marginTop: "-30px",
-                        opacity: "0.7",
-                        background: "#f1f1f1",
-                        cursor: "not-allowed",
-                      }
-                }
-                onClick={async () => {
-                  const res = await AgregarDireccionDeEnvio({
-                    direccionLugar: direccion.direccionTexto,
-                    codigoPostal: direccion.codigoPostal,
-                  });
-                  toast(res);
-                }}
-              >
-                <FaSave className="icon" />
-                <p>Save Direction</p>
+              <div>
+                <form
+                  className=""
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    actualizarDireccionSubmit();
+                  }}
+                >
+                  <div className="input-group">
+                    <input
+                      type="text"
+                      placeholder="Dirección de envio"
+                      name="direccionTexto"
+                      value={direccion?.direccionTexto || ""}
+                      onChange={inputHandleChange}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Codigo Postal"
+                      name="codigoPostal"
+                      value={direccion?.codigoPostal || ""}
+                      onChange={inputHandleChange}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className={
+                      tieneDireccion ? "add-email" : "add-email-display"
+                    }
+                    style={{ marginTop: "30px" }}
+                    disabled={loading}
+                  >
+                    <FaEdit className="icon" />
+                    <p>{loading ? "Updating..." : "Change Information"}</p>
+                  </button>
+
+                  <button
+                    className={
+                      tieneDireccion ? "add-email-display" : "add-email"
+                    }
+                    style={
+                      Object.values(direccion).some(
+                        (v) => typeof v === "string" && v.trim() !== ""
+                      )
+                        ? { marginTop: "-30px", cursor: "pointer" }
+                        : {
+                            marginTop: "-30px",
+                            opacity: "0.7",
+                            background: "#f1f1f1",
+                            cursor: "not-allowed",
+                          }
+                    }
+                    disabled={loading}
+                    onClick={async () => {
+                      const res = await AgregarDireccionDeEnvio({
+                        direccionLugar: direccion.direccionTexto,
+                        codigoPostal: direccion.codigoPostal,
+                      });
+                      toast(res);
+                    }}
+                  >
+                    <FaSave className="icon" />
+                    <p>{loading ? "Saving..." : "Save Direction"}</p>
+                  </button>
+                </form>
               </div>
             </div>
           </div>

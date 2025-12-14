@@ -1,7 +1,13 @@
 import "../styles/components.css";
 import { FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 function CambiarInfoEnvio() {
+  const [direccion, setDireccion] = useState({
+    usuarioId: "",
+    direccionTexto: "",
+    codigoPostal: "",
+  });
   return (
     <div>
       <div className="modal-container " id="modal-container">
