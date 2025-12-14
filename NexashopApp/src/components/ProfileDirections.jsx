@@ -112,8 +112,8 @@ function ProfileDirections() {
             <div className="profile-header">
               <h2>Your Directions</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laudantium esse Lorem, ipsum dolor.
+                Manage your saved shipping addresses. Add a new address or edit
+                an existing one.
               </p>
             </div>
             <hr />
