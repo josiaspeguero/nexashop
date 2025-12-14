@@ -30,7 +30,7 @@ namespace TiendaBackend.Data.Repositories
 
         public async Task<IEnumerable<Producto>> GetAllAsync()
         {
-            var sql = @"select Nombre, Categoria, Descripcion, 
+            var sql = @"select Id, Nombre, Categoria, Descripcion, 
                         Photo_Url as PhotoUrl, Precio, Fecha_Entrada as FechaEntrada, Stock from productos";
             return await _connection.Connection(c => c.QueryAsync<Producto>(sql));
         }
