@@ -2,9 +2,10 @@ import "../styles/profile.styles.css";
 import { FaEdit, FaSave, FaTruck, FaUser } from "react-icons/fa";
 import CambiarInfoEnvio from "./CambiarInfoEnvio";
 import BackHome from "./ui/BackHome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AgregarDireccionDeEnvio } from "./AgregarDireccionDeEnvio";
 import { ToastContainer, toast } from "react-toastify";
+import { listarMisDirecciones } from "../api/axios";
 
 function ProfileDirections() {
   const [direccion, setDireccion] = useState({
@@ -12,6 +13,32 @@ function ProfileDirections() {
     direccionTexto: "",
     codigoPostal: "",
   });
+
+  const [tieneDireccion, setTieneDireccion] = useState(false);
+
+  useEffect(() => {
+    const usuario = localStorage.getItem("usuario");
+    if (!usuario) {
+      return;
+    }
+    const usuarioParse = JSON.parse(usuario);
+    async function cargarDatos() {
+      const misDirecciones = await listarMisDirecciones(usuarioParse.id);
+
+      if (misDirecciones.data && misDirecciones.data.length > 0) {
+        setDireccion(misDirecciones.data[0]);
+        setTieneDireccion(true);
+      } else {
+        setDireccion({
+          usuarioId: "",
+          direccionTexto: "",
+          codigoPostal: "",
+        });
+        setTieneDireccion(false);
+      }
+    }
+    cargarDatos();
+  }, []);
 
   const inputHandleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +55,13 @@ function ProfileDirections() {
       <div className="profile-container">
         <div className="profile-title">
           <p>Account</p>
+          <button
+            onClick={() => {
+              console.log(direccion);
+            }}
+          >
+            direeeee
+          </button>
         </div>
         <div className="profile-content">
           <div className="profile-menu">
@@ -95,13 +129,7 @@ function ProfileDirections() {
             </div>
             <div className="info-section">
               <div
-                className={
-                  Object.values(direccion).some(
-                    (v) => typeof v === "string" && v.trim() !== ""
-                  )
-                    ? "add-email-display"
-                    : "add-email-display"
-                }
+                className={tieneDireccion ? "add-email" : "add-email-display"}
                 style={{ marginTop: "-30px" }}
                 onClick={() => {
                   document
@@ -113,7 +141,8 @@ function ProfileDirections() {
                 <p>Change Information</p>
               </div>
               <div
-                className="add-email"
+                className={tieneDireccion ? "add-email-display" : "add-email"}
+                id="save-direction"
                 style={
                   Object.values(direccion).some(
                     (v) => typeof v === "string" && v.trim() !== ""
