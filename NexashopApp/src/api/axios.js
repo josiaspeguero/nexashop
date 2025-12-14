@@ -33,3 +33,11 @@ export const getProductsFromCart = async (id) => {
   const res = await axios.get(`${baseUrl}/api/carrito/mis-productos/${id}`);
   return res;
 };
+
+export const agregarProductoAlCarrito = async (producto) => {
+  const res = await axios.post(
+    `${baseUrl}/api/ordenes/agregar-producto`,
+    producto
+  );
+  return res;
+};

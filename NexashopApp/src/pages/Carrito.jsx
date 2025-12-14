@@ -18,7 +18,8 @@ function Carrito() {
       const usuarioParse = JSON.parse(usuario);
       const myProducts = await getProductsFromCart(usuarioParse.id);
       setProducts(myProducts.data);
-      console.log(myProducts.data);
+      const  carritoID = myProducts.data[0].carritoID;
+      localStorage.setItem("carritoID", carritoID)
     }
     loadProductsCart();
   }, []);
