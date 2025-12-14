@@ -195,6 +195,12 @@
 .info-section input::placeholder {
   font-weight: 500;
 }
+/* .add-email-display {
+  display: none;
+} */
+ .add-email-display{
+  display: none;
+ }
 .info-section .add-email {
   padding: 10px 20px;
   display: flex;

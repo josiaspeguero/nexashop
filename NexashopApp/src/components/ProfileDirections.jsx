@@ -1,13 +1,30 @@
 import "../styles/profile.styles.css";
-import { FaEdit, FaTruck, FaUser } from "react-icons/fa";
+import { FaEdit, FaSave, FaTruck, FaUser } from "react-icons/fa";
 import CambiarInfoEnvio from "./CambiarInfoEnvio";
 import BackHome from "./ui/BackHome";
+import { useState } from "react";
+import { AgregarDireccionDeEnvio } from "./AgregarDireccionDeEnvio";
+import { ToastContainer, toast } from "react-toastify";
 
 function ProfileDirections() {
+  const [direccion, setDireccion] = useState({
+    usuarioId: "",
+    direccionTexto: "",
+    codigoPostal: "",
+  });
+
+  const inputHandleChange = (e) => {
+    const { name, value } = e.target;
+    setDireccion({
+      ...direccion,
+      [name]: value,
+    });
+  };
   return (
     <div>
       <CambiarInfoEnvio />
       <BackHome />
+      <ToastContainer position="bottom-right" />
       <div className="profile-container">
         <div className="profile-title">
           <p>Account</p>
@@ -45,47 +62,6 @@ function ProfileDirections() {
                 <span>Check or edit your directions in some click</span>
               </div>
             </div>
-
-            {/* <div className="menu-item">
-              <div className="line-decoration"></div>
-              <div className="icon-container">
-                <FaTruck className="icon" />
-              </div>
-              <div className="description">
-                <p>Your Directions</p>
-                <span>Change or edit your directions in some click</span>
-              </div>
-            </div> */}
-            {/* <div className="menu-item">
-              <div className="line-decoration"></div>
-              <div className="icon-container">
-                <FaLock className="icon" />
-              </div>
-              <div className="description">
-                <p>Security</p>
-                <span>Change or edit your security settings in some click</span>
-              </div>
-            </div> */}
-            {/* <div className="menu-item">
-              <div className="line-decoration"></div>
-              <div className="icon-container">
-                <FaSlidersH className="icon" />
-              </div>
-              <div className="description">
-                <p>Preferences</p>
-                <span>Change or edit your preferences in some click</span>
-              </div>
-            </div> */}
-            {/* <div className="menu-item">
-              <div className="line-decoration"></div>
-              <div className="icon-container">
-                <FaCog className="icon" />
-              </div>
-              <div className="description">
-                <p>Settings</p>
-                <span>Change or edit your settings in some click</span>
-              </div>
-            </div> */}
           </div>
 
           <div className="profile-info profile-section">
@@ -97,40 +73,35 @@ function ProfileDirections() {
               </p>
             </div>
             <hr />
-            {/* <div className="profile-personal-info"> */}
-            {/* <div className="profile-picture">
-                <div className="picture">JM</div>
-                <div className="profile-desciption">
-                  <div>
-                    {" "}
-                    <p>Your Avatar</p>
-                    <span>PNG, JPG, WEBP</span>
-                  </div>
 
-                  <button className="upload-profile">
-                    <FaUpload className="icon" />
-                    Upload Image
-                  </button>
-                </div>
-              </div> */}
-            {/* </div> */}
-            {/* <hr /> */}
             <div className="info-section">
               <div className="title-info">Direction & Postal Code</div>
               <div className="input-group">
                 <input
                   type="text"
-                  placeholder="Calle Duarte #06, esq. sabala"
+                  placeholder="Dirección de envio"
+                  name="direccionTexto"
+                  value={direccion?.direccionTexto || ""}
+                  onChange={inputHandleChange}
                 />
-                <input type="text" placeholder="98000" />
+                <input
+                  type="number"
+                  placeholder="Codigo Postal"
+                  name="codigoPostal"
+                  value={direccion?.codigoPostal || ""}
+                  onChange={inputHandleChange}
+                />
               </div>
             </div>
-            {/* <hr /> */}
             <div className="info-section">
-              {/* <div className="title-info">Your Emails</div>
-              <input type="text" placeholder="josiaspegueroltjnc@gmail.com" /> */}
               <div
-                className="add-email"
+                className={
+                  Object.values(direccion).some(
+                    (v) => typeof v === "string" && v.trim() !== ""
+                  )
+                    ? "add-email-display"
+                    : "add-email-display"
+                }
                 style={{ marginTop: "-30px" }}
                 onClick={() => {
                   document
@@ -140,6 +111,31 @@ function ProfileDirections() {
               >
                 <FaEdit className="icon" />
                 <p>Change Information</p>
+              </div>
+              <div
+                className="add-email"
+                style={
+                  Object.values(direccion).some(
+                    (v) => typeof v === "string" && v.trim() !== ""
+                  )
+                    ? { marginTop: "-30px", cursor: "pointer" }
+                    : {
+                        marginTop: "-30px",
+                        opacity: "0.7",
+                        background: "#f1f1f1",
+                        cursor: "not-allowed",
+                      }
+                }
+                onClick={async () => {
+                  const res = await AgregarDireccionDeEnvio({
+                    direccionLugar: direccion.direccionTexto,
+                    codigoPostal: direccion.codigoPostal,
+                  });
+                  toast(res);
+                }}
+              >
+                <FaSave className="icon" />
+                <p>Save Direction</p>
               </div>
             </div>
           </div>

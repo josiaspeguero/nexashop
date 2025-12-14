@@ -1,4 +1,3 @@
-// AgregarAlCarritoFunction.js
 import { agregarProductoAlCarrito } from "../api/axios";
 
 export async function agregarAlCarrito({

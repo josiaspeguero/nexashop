@@ -46,3 +46,11 @@ export const eliminarProductoCarrito = async (id) => {
   const res = await axios.delete(`${baseUrl}/api/ordenes/${id}`);
   return res;
 };
+
+export const agregarDireccionEnvio = async (direccion) => {
+  const res = await axios.post(
+    `${baseUrl}/api/direcciones/agregar-direccion`,
+    direccion
+  );
+  return res;
+};
