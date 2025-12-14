@@ -54,3 +54,10 @@ export const agregarDireccionEnvio = async (direccion) => {
   );
   return res;
 };
+
+export const listarMisDirecciones = async (usuarioId) => {
+  const res = await axios.get(
+    `${baseUrl}/api/direcciones/mis-direcciones/${usuarioId}`
+  );
+  return res;
+};

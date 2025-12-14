@@ -4,12 +4,18 @@ import { FaTrash, FaTruck } from "react-icons/fa";
 import { shortCutText } from "../utils/shortCutText";
 import CambiarInfoEnvio from "../components/CambiarInfoEnvio";
 import { useEffect, useState } from "react";
-import { getProductsFromCart } from "../api/axios";
+import { getProductsFromCart, listarMisDirecciones } from "../api/axios";
 import { EliminarProductoFunction } from "../components/EliminarProductoFunction";
 import { toast, ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function Carrito() {
   const [products, setProducts] = useState([]);
+  const [direccion, setDireccion] = useState({
+    usuarioId: "",
+    direccionTexto: "",
+    codigoPostal: "",
+  });
   useEffect(() => {
     const usuario = localStorage.getItem("usuario");
     if (!usuario) {
@@ -22,6 +28,18 @@ function Carrito() {
       setProducts(myProducts.data);
       const carritoID = myProducts.data[0].carritoID;
       localStorage.setItem("carritoID", carritoID);
+
+      //direccion de envio
+      const direccionEnvio = await listarMisDirecciones(usuarioParse.id);
+      if (direccionEnvio.data && direccionEnvio.data.length > 0) {
+        setDireccion(direccionEnvio.data[0]);
+      } else {
+        setDireccion({
+          usuarioId: "",
+          direccionTexto: "",
+          codigoPostal: "",
+        });
+      }
     }
     loadProductsCart();
   }, []);
@@ -75,7 +93,17 @@ function Carrito() {
             <FaTruck className="icon" />
             <div className="info">
               <span>Direccion de envio</span>
-              <p>Calle #04, San Jose de Ocoa</p>
+              <p>
+                {direccion.direccionTexto.length > 0 ? (
+                  direccion.direccionTexto
+                ) : (
+                  <div>
+                    <Link to="/perfil/mis-direcciones">
+                      Agrega Una Dirección
+                    </Link>
+                  </div>
+                )}
+              </p>
             </div>
           </div>
           <div className="amount-resume">

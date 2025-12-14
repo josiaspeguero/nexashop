@@ -77,6 +77,9 @@
   align-items: center;
   margin: 20px 0;
 }
+.cart-order .direction a{
+  color: #0080ff;
+}
 .cart-order .direction .icon {
   font-size: 23px;
   margin-right: 10px;
