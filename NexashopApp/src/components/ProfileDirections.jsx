@@ -176,10 +176,12 @@ function ProfileDirections() {
                     }
                     disabled={loading}
                     onClick={async () => {
+                      setLoading(true);
                       const res = await AgregarDireccionDeEnvio({
                         direccionLugar: direccion.direccionTexto,
                         codigoPostal: direccion.codigoPostal,
                       });
+                      setLoading(false);
                       toast(res);
                     }}
                   >
