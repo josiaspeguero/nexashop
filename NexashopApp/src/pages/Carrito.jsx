@@ -8,9 +8,11 @@ import { getProductsFromCart, listarMisDirecciones } from "../api/axios";
 import { EliminarProductoFunction } from "../components/EliminarProductoFunction";
 import { toast, ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
+import { formatMoney } from "../utils/formatMoney";
 
 function Carrito() {
   const [products, setProducts] = useState([]);
+  const [monto, setMonto] = useState(0);
   const [direccion, setDireccion] = useState({
     usuarioId: "",
     direccionTexto: "",
@@ -26,6 +28,8 @@ function Carrito() {
       const usuarioParse = JSON.parse(usuario);
       const myProducts = await getProductsFromCart(usuarioParse.id);
       setProducts(myProducts.data);
+      console.log(myProducts.data);
+
       const carritoID = myProducts.data[0].carritoID;
       localStorage.setItem("carritoID", carritoID);
 
@@ -39,6 +43,13 @@ function Carrito() {
           direccionTexto: "",
           codigoPostal: "",
         });
+      }
+
+      if (myProducts.data.length > 0) {
+        const total = myProducts.data.reduce((acc, item) => {
+          return acc + Number(item.precio || 0);
+        }, 0);
+        setMonto(total);
       }
     }
     loadProductsCart();
@@ -122,7 +133,7 @@ function Carrito() {
             <hr />
             <div className="order-item total">
               <p>Total</p>
-              <span>RD$ 15,210</span>
+              <span>{formatMoney(monto)}</span>
             </div>
             <hr />
           </div>

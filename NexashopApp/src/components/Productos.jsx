@@ -25,7 +25,11 @@ function Productos() {
       />
       <div className="products-section">
         {productos.map((producto) => (
-          <Link className="product-card" key={producto.id}>
+          <Link
+            to={`/detail/${producto.id}`}
+            className="product-card"
+            key={producto.id}
+          >
             <div className="product-advice">
               <p>Nuevo</p>
             </div>
@@ -61,9 +65,6 @@ function Productos() {
               <button className="icon-btn">
                 <FaShoppingCart />
               </button>
-              {/* <button className="add-cart-btn icon">
-                <FaShoppingCart />
-              </button> */}
             </div>
           </Link>
         ))}
