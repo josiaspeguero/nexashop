@@ -120,7 +120,7 @@ function Carrito() {
           <div className="amount-resume">
             <div className="order-item">
               <p>Subtotal</p>
-              <span>RD$ 14,000</span>
+              <span>{formatMoney(monto)}</span>
             </div>
             <div className="order-item">
               <p>Envio</p>
@@ -128,12 +128,12 @@ function Carrito() {
             </div>
             <div className="order-item">
               <p>Impuesto</p>
-              <span>0%</span>
+              <span>1.8%</span>
             </div>
             <hr />
             <div className="order-item total">
               <p>Total</p>
-              <span>{formatMoney(monto)}</span>
+              <span>{formatMoney(((monto * 1.8) / 100) + monto)}</span>
             </div>
             <hr />
           </div>
